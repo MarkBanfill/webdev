@@ -8,16 +8,20 @@ jQuery(document).ready(function($) {
 $('.screen-wipe').css('transform','translate3d(0, -100vh, 0)');
 
 $('a').click(function() {
+	// If inside certain sections do nothing
 	if($(this).attr('target') == '_blank') {
 		return;
 	};
 	if($(this).closest('.current-section').length) {
-    // inside .current-section
+		return;
+	}
+	if($(this).closest('a[href^="tel:"]').length) {
 		return;
 	}
 	if($(this).closest('.back2top').length) {
 		return;
 	}
+	// Else do screen wipe animation
 	var href = $(this).attr('href');
 	setTimeout(function() {window.location = href}, 1000);
 	$('nav').removeClass('visible');
@@ -30,16 +34,12 @@ var $hamburger = $('.hamburger');
 $hamburger.on('click', function(e) {
 	$hamburger.toggleClass('is-active');
 	if ( $hamburger.is( '.is-active' ) ) {
-		//$('#parallax').removeClass('moveForward');
-		//$('#parallax').addClass('moveBack');
 		$('nav').addClass('visible');
 		setTimeout(function() {$('.hamburger-inner').removeClass('black')}, 500);
 	} else {
 		$('nav').removeClass('visible');
 		// Trigger window scroll functions to update page number on refresh
 		$(window).scrollTop($(window).scrollTop()+1);
-		//$('#parallax').removeClass('moveBack');
-		//$('#parallax').addClass('moveForward');
 	}
 });
 
@@ -179,7 +179,6 @@ if ( $('body').is('.contact') ) {
 
 
 $(window).scroll(function(){
-	//alert("scroll");
 	var scrollHeight = $(window).height();
 	var scrollMid = scrollHeight / 2;
 	var scrollPosition = $(window).scrollTop();
@@ -244,7 +243,9 @@ $(window).scroll(function(){
 		})
 
 		// Update section number
-		if (isInView($('.section4'))) {
+		if (isInView($('.section5'))) {
+			$('.current-section a:first-of-type').html('05');
+		} else if (isInView($('.section4'))) {
 			$('.current-section a:first-of-type').html('04');
 		} else if (isInView($('.section3'))) {
 			$('.current-section a:first-of-type').html('03');

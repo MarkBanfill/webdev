@@ -1,5 +1,5 @@
 			<!-- footer -->
-			<footer class="footer section8" role="contentinfo">
+			<footer class="footer section8">
 
 				<!-- footer widget added by me -->
 				<div id="widgetized-area">

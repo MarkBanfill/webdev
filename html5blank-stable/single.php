@@ -31,13 +31,13 @@
 
 			<?php the_content(); // Dynamic Content ?>
 
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+			<p class="tags"><?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?></p>
 
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 
 			<?php comments_template(); ?>
 
-			<p><a class="link-button" href="../blog">Back</a></p>
+			<p><a class="link-button" href="../blog">Back To Blog</a></p>
 
 		</article>
 		<!-- /article -->
