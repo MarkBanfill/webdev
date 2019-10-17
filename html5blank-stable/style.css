@@ -191,8 +191,6 @@ input:focus {
   border: 1px solid #444;
   background-color: #222;
   margin-top: 1vw;
-  width: max-content;
-  margin-left: 0 !important;
 }
 .highlight h3 {
   max-width: inherit;
@@ -493,7 +491,7 @@ body.portfolio article > h2 {
 	font-weight: bold;
   color: #666;
 }
-body.portfolio article .uagb-section__inner-wrap h2, body.blog h2:first-of-type, body.single-post h1 {
+body.portfolio article .uagb-section__inner-wrap h2, body.blog h2:first-of-type {
   margin-top: 5vh;
 }
 body.portfolio .uagb-section__wrap {
@@ -547,8 +545,16 @@ body.portfolio .uagb-section__wrap.timeline > .uagb-section__inner-wrap {
   border-right: none;
 }
 
+body.blog .uagb-section__wrap.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;  
+}
 body.blog article {
-  padding: 0 2em 1em;
+  padding: 0.4em 2em 1em;
   border: 1px solid #444;
   background-color: #222;
   min-height: inherit;
@@ -560,7 +566,7 @@ body.blog article h3, body.single-post h1 {
 body.blog article p {
   color: #aaa;
 }
-span.date, span.author, span.comments {
+p.tags, p.tags a, span.date, span.author, span.comments {
   display: inline-block;
   font-size: 0.8em;
   color: #999;
@@ -573,16 +579,22 @@ body.blog .view-article {
   margin-top: 2em;
   max-width: max-content;
 }
+body.single-post h1 {
+  margin-top: 0;
+}
 body.single-post section {
   min-height: 100vh;
   padding-top: 15vh;
 }
 body.single-post article {
-  padding: 1px 2em 1.5em;
+  padding: 2em;
   border: 1px solid #444;
   background-color: #222;
   margin-bottom: 3em;
   min-height: auto;
+}
+body.single-post article p:last-of-type {
+  margin: 0;
 }
 body.single-post .comments {
   display: none;
@@ -816,6 +828,9 @@ article > .has-2-columns .wp-block-column:not(:first-child), article > .has-2-co
   }
 }
 @media only screen and (max-width: 949px) {
+  .highlight {
+    margin-top: 3em;
+  }
   .mockup .wp-block-columns.has-2-columns .wp-block-column:first-of-type {
     flex-basis: 100%;
   }
@@ -896,6 +911,7 @@ article > .has-2-columns .wp-block-column:not(:first-child), article > .has-2-co
     padding: 4rem var(--padding);
   }
   .timeline .has-2-columns .wp-block-column:last-of-type {
+    padding-left: calc(10vmin - 32px);
     padding-right: var(--padding);
   }
   .wp-block-columns.has-2-columns.centered .wp-block-column {
@@ -1021,9 +1037,23 @@ article > .has-2-columns .wp-block-column:not(:first-child), article > .has-2-co
   }
 }
 @media only screen and (min-width: 950px) {
+  .highlight {
+    display: none;
+  }
+  .mockup ul {
+    float: left;
+    margin-top: 0;
+  }
   .floating-elements {
+    clear: both;
     margin-bottom: 0;
+    padding-top: 3em !important;
     display: block;
+  }
+  .floating-elements > .uagb-section__inner-wrap {
+    display: flex;
+    align-items: baseline;
+    margin-left: 0;
   }
   .floating-elements .uagb-section__inner-wrap {
     animation: float 5s ease-in-out infinite;
@@ -1036,12 +1066,9 @@ article > .has-2-columns .wp-block-column:not(:first-child), article > .has-2-co
     animation-duration: 5s;
     animation-delay: 1.5s;
   }
-  .floating-elements svg {
-    width: 100%;
-  }
   .laptop, .tablet, .mobile {
     position: relative;
-    padding: 16px !important;
+    padding-right: 4% !important;
   }
   .tablet, .mobile {
     display: inline-block;
@@ -1058,16 +1085,14 @@ article > .has-2-columns .wp-block-column:not(:first-child), article > .has-2-co
     margin-left: 0.3%;
   }
   .laptop {
-    width: 80%;
-    min-width: 452px;
+    width: 60%;
   }
   .tablet {
-    width: 24%;
-    min-width: 182px;
+    width: 22%;
   }
   .mobile {
-    width: 15%;
-    min-width: 112px;
+    width: 10%;
+    padding-right: 0 !important;
   }
   .slideshow1, .slideshow2, .slideshow3 {
     position: absolute;
@@ -1098,6 +1123,9 @@ article > .has-2-columns .wp-block-column:not(:first-child), article > .has-2-co
   h3 {
   	max-width: 80%;
   }
+  .mockup h3 {
+    max-width: 70%;
+  }
   .footer .widget_nav_menu {
     display: block;
   }
@@ -1107,8 +1135,13 @@ article > .has-2-columns .wp-block-column:not(:first-child), article > .has-2-co
     margin-top: 2em;
   }
 }
-@media only screen and (min-width: 1280px) {
-
+@media only screen and (min-width: 1366px) {
+  .highlight {
+    display: block;
+    margin-top: 0;
+    float: right;
+    width: max-content;
+  }
 }
 @media only screen and (min-width: 1600px) {
   /* Max font size */

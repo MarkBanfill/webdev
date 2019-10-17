@@ -14,7 +14,7 @@
 		<link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/safari-pinned-tab.svg" color="#999966">
 		<script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 		<meta name="msapplication-TileColor" content="#2b5797">
@@ -28,7 +28,7 @@
 		<div class="wrapper">
 
 			<!-- header -->
-			<header class="header clear" role="banner">
+			<header class="header clear">
 
 					<!-- logo -->
 					<div class="logo">
@@ -50,7 +50,7 @@
 					<!-- /hamburger -->
 
 					<!-- nav -->
-					<nav class="nav" role="navigation">
+					<nav class="nav">
 						<?php html5blank_nav(); ?>
 						<div class="social-links">
 							<ul>
